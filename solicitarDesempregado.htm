@@ -1,0 +1,411 @@
+<!--#include file="header.htm"-->
+<!--#include file="siderbar.htm"-->
+
+<!-- Main content -->
+<main class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <div class="fs-4">Passe Desempregado</div>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-end">
+            <li class="breadcrumb-item"><a href="index.htm">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Solicitações</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <!-- Abas para Atualização e Histórico -->
+    <ul class="nav nav-tabs" id="tabContent">
+      <li class="nav-item">
+        <a class="nav-link active" id="tabAtualizacao" data-bs-toggle="tab" href="#atualizacao">Solicitações</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="tabHistorico" data-bs-toggle="tab" href="#historico">Histórico</a>
+      </li>
+    </ul>
+    <div class="tab-content mt-3">
+      <div class="tab-pane fade show active" id="atualizacao">
+        <div class="row d-flex align-items-center" style="margin: 20px;">
+          <!-- Card do Benefício -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box info-box-benefit" id="benefitCard">
+              <span class="info-box-icon bg-secondary shadow-sm"><i class="fas fa-thumbs-up"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Cartão do Benefício</span>
+                <span class="info-box-number" id="validadeStatus">Nenhum ativo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botão de Novo Cartão -->
+          <div class="col-auto">
+            <button class="btn btn-primary shadow-sm" id="btnNovoCartao">
+              <i class="fas fa-plus"></i> Novo Cartão
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Main content -->
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <!-- Default box -->
+                <div class="card">
+                  <div class="card-header" style="background-color: #204874; color:#fff;">
+                    <h3 class="card-title">Dados Pessoais </h3>
+
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-2 text-center">
+                        <div id="drop-area" style="cursor: pointer;">
+                          <label for="foto" id="cameraLabel">
+                            <i class="fa fa-camera" style="font-size: 48px; cursor: pointer;"></i>
+                          </label>
+                          <input type="file" id="foto" name="foto" accept="image/*" style="display: none;">
+                          <img id="fotoPreview" src="" alt="Foto 3x4" class="img-thumbnail"
+                            style="width: 120px; height: 160px; display: none;">
+                          <div class="help-text">
+                            <small>Arraste e solte ou clique</small>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#photoModal"
+                          style="margin-top: 10px;">
+                          Fotografar
+                        </button>
+                      </div>
+
+                      <div class="col-md-10" style="margin-top: 20px;">
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="cpf" name="cpf" required placeholder="">
+                              <label for="cpf">CPF</label>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="nome">Nome Completo</label>
+                              <input type="text" class="form-control" id="nome" name="nome" required>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="rg">RG</label>
+                              <input type="text" class="form-control" id="rg" name="rg" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="dataNascimento">Data Nascimento</label>
+                              <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="telefone">Telefone</label>
+                              <input type="text" class="form-control" id="telefone" name="telefone" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row" id="infoSelo">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="numeroSelo">N° Selo</label>
+                              <input type="text" class="form-control" id="numeroSelo" name="numeroSelo" required>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="carteiraTrabalho">N° CTPS</label>
+                              <input type="text" class="form-control" id="carteiraTrabalho" name="carteiraTrabalho"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="serie">Série</label>
+                              <input type="text" class="form-control" id="serie" name="serie" required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="form-group col-md-2">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control" id="cep" name="cep" required>
+                          </div>
+                          <div class="form-group col-md-8">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" class="form-control" id="endereco" name="endereco" required>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="numero">Número</label>
+                            <input type="text" class="form-control" id="numero" name="numero" required>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-md-3">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" class="form-control" id="complemento" name="complemento">
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" class="form-control" id="bairro" name="bairro" required>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" name="cidade" required>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="estado">Estado</label>
+                            <input type="text" class="form-control" id="estado" name="estado" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content" style="margin-top: 5px;">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <!-- Default box -->
+                <div class="card">
+                  <div class="card-header" style="background-color: #204874; color:#fff;">
+                    <h3 class="card-title">Última empresa </h3>
+
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <!-- CNPJ -->
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="cnpj">CNPJ</label>
+                          <input type="text" class="form-control" id="cnpj" name="cnpj" required>
+                        </div>
+                      </div>
+                      <!-- Nome da Empresa -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="nomeEmpresa">Nome da Empresa</label>
+                          <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" required>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="dataDispensa">Data Dispensa</label>
+                          <input type="date" class="form-control" id="dataDispensa" name="dataDispensa" required>
+                          <div id="dataError" class="text-danger" style="display: none;"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <!-- CEP -->
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label for="cepEmpresa">CEP</label>
+                          <input type="text" class="form-control" id="cepEmpresa" name="cepEmpresa" required>
+                        </div>
+                      </div>
+                      <!-- Endereço -->
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label for="enderecoEmpresa">Endereço</label>
+                          <input type="text" class="form-control" id="enderecoEmpresa" name="enderecoEmpresa" required>
+                        </div>
+                      </div>
+                      <!-- Número -->
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label for="numeroEmpresa">Número</label>
+                          <input type="text" class="form-control" id="numeroEmpresa" name="numeroEmpresa" required>
+                        </div>
+                      </div>
+                      <!-- Complemento -->
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="complementoEmpresa">Complemento</label>
+                          <input type="text" class="form-control" id="complementoEmpresa" name="complementoEmpresa">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <!-- Bairro -->
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bairroEmpresa">Bairro</label>
+                          <input type="text" class="form-control" id="bairroEmpresa" name="bairroEmpresa" required>
+                        </div>
+                      </div>
+                      <!-- Cidade -->
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="cidadeEmpresa">Cidade</label>
+                          <input type="text" class="form-control" id="cidadeEmpresa" name="cidadeEmpresa" required>
+                        </div>
+                      </div>
+                      <!-- Estado -->
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="estadoEmpresa">Estado</label>
+                          <input type="text" class="form-control" id="estadoEmpresa" name="estadoEmpresa" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card com Dropdown de Opções e Campo de Observação -->
+                <div class="card">
+                  <div class="card-header" style="background-color: #204874; color:#fff;">
+                    <h3 class="card-title">Observação</h3>
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-body">
+                    <!-- Dropdown de Opções -->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="acaoBeneficio">Motivo da 2ª via</label>
+                        <select class="form-control" id="acaoBeneficio" name="acaoBeneficio">
+                          <!-- Opções serão adicionadas dinamicamente -->
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Campo de Observação -->
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="observacao">Observação</label>
+                        <textarea class="form-control" id="observacao" name="observacao" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- Botões de Ação -->
+                <div class="mt-3 d-flex justify-content-between">
+                  <div>
+                    <button type="submit" class="btn btn-success">
+                      <i class="fa fa-save"></i> salvar
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal2Via">
+                      <i class="fas fa-print"></i> Imprimir
+                    </button>
+                    <button type="button" class="btn btn-danger">Entregar Cartão</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Conteúdo da aba Histórico -->
+      <div class="tab-pane fade" id="historico">
+        <div class="col-12 mt-3">
+          <div class="card">
+            <div class="card-header" style="background-color: #204874; color: #fff;">
+              <h3 class="card-title">Histórico do Desempregado</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Data da Atualização</th>
+                    <th>Selo</th>
+                    <th>Operação</th>
+                    <th>Empresa</th>
+                    <th>Motivo</th>
+                    <th>Observação</th>
+                    <th>info</th>
+                  </tr>
+                </thead>
+                <tbody  id="tabelaHistorico">
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header" style="background-color: #204874; color: #fff;">
+                    <h5 class="modal-title" id="infoModalLabel">Detalhes da Atualização</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Data da Atualização:</strong> <span id="modalData"></span>
+                      </li>
+                      <li class="list-group-item"><strong>Selo:</strong> <span id="modalSelo"></span></li>
+                      <li class="list-group-item"><strong>Operação:</strong> <span id="modalOper"></span></li>
+                      <li class="list-group-item"><strong>Empresa:</strong> <span id="modalEmpresa"></span></li>
+                      <li class="list-group-item"><strong>Motivo:</strong> <span id="modalMotivo"></span></li>
+                      <li class="list-group-item"><strong>Observação:</strong> <span id="modalObservacao"></span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- fim modal -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!--#include file="footer.htm"-->

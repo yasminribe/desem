@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento EMTU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .header-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .header-emtu,
+        .header-title {
+            border: 1px solid black;
+            padding: 5px;
+            display: inline-block;
+            font-weight: bold;
+            color: navy;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        .container {
+            width: 100%;
+            border: 1px solid black;
+            padding: 18px;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+        td {
+            border: none;
+            padding: 4px;
+            vertical-align: top;
+        }
+        .first-column {
+            width: 100px; 
+        }
+        .first-column-number {
+            width: 60px; 
+        }
+        .column-number-value {
+            width: 70px; 
+        }
+        .column-date {
+            width: 70px;
+        }
+        .declaration {
+            font-size: 14px;
+            padding: 40px 0 40px;
+            text-align: justify;
+        }
+        .signature {
+            margin-top: 70px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+        .signature div {
+            width: 80%;
+            text-align: center;
+            position: relative;
+        }
+        .line-guide {
+            border-top: 1px solid black;
+            left: 35px;
+            width: 100%;
+            position: absolute;
+            top: -10px;
+        }
+        .label-right {
+            text-align: right;
+        }
+        .label-center {
+            text-align: center;
+        }
+
+        /* Estilos para a seção do cartão */
+        .card-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            border: none;
+            padding: 0;
+            max-width: 170mm;
+            height: 60mm;
+            font-size: 11px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .card-left, .card-right {
+            width: 48%;
+            padding: 10px;
+            background-size: 100% auto;
+            background-position: center; 
+            background-repeat: no-repeat; 
+            min-height: 60mm;
+        }
+
+    .card-left {
+        border-right: none;
+        background-image: url('img/cartao3.jpg'); /* Imagem para o lado esquerdo */
+        margin-right: 5px; /* Pequeno espaçamento entre os cartões */
+
+        position: relative;
+    }
+
+    .card-left-title {
+        text-align: center; /* Centraliza o texto "TRABALHADOR DESEMPREGADO" e "Decreto..." */
+        margin-bottom: 10px;
+    }
+
+    /* Alinha a data "Retirado em" abaixo */
+    .block-text {
+        display: block;
+    }
+
+    /* Estilização para aumentar o tamanho da validade */
+    .validade-data {
+        display: block;
+        font-size: 34px; /* Aumenta 4 vezes o tamanho */
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .card-right {
+        background-image: url('img/cartao3.jpg'); /* Imagem para o lado direito */
+        margin-left: 5px; /* Pequeno espaçamento entre os cartões */
+    }
+
+    .card-text-info {
+        margin-top: 0;
+    }
+
+
+    .card-photo {
+        background-image: url('img/foto.jpg'); /* Coloque o caminho correto para a foto */
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        bottom: 20px;
+        right: 15px;
+    }
+
+.card-info-table {
+    width: 100%;
+    font-size: 10px;
+    margin-top: 0; /* Ajusta a distância do topo */
+
+}
+
+.card-info-table td {
+    border: none;
+    width: 15%;
+    text-align: left;
+    vertical-align: top; /* Garante alinhamento vertical adequado */
+    padding-bottom: 5px; /* Espaçamento entre as linhas */
+    line-height: 0.5;
+}
+
+.card-info-table td:nth-child(2) {
+    width: 85%; /* A segunda coluna tem 85% do espaço */
+    text-align: left;
+}
+
+.card-details {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.block-text {
+    display: inline-block;
+}
+
+.validade-data {
+    display: block;
+    margin-top: 5px; /* Pequeno espaçamento entre "Validade até" e a data */
+}
+
+
+    /* Cortes (imagens tracejadas) */
+        .cut-vertical {
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 21px;
+            height: 150%;
+            background-image: url('img/CortarVertical.bmp'); /* Imagem vertical de corte */
+            background-position: 0 -40px;
+            clip-path: inset(15px 0 90px 0);
+            transform: scaleX(-1);
+
+
+        }
+
+        .cut-vertical-opposite {
+    position: absolute;
+    top: 0;
+    right: -20px; /* Alinhado à direita */
+    width: 21px;
+    height: 110%;
+    background-image: url('img/CortarVertical.bmp');
+    background-position: 0 -40px;
+    clip-path: inset(19px 0 0 0 );
+
+}
+
+        .cut-horizontal {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 21px;
+            background-image: url('img/CortarHorizontal.bmp'); /* Imagem horizontal de corte */
+            background-position: 0 0;
+            clip-path: inset(  0   0  0 -100px);
+
+        }
+
+        .cut-horizontal-opposite {
+            position: absolute; /* Mantém o posicionamento absoluto */
+            bottom: 0; /* Posiciona na parte inferior do contêiner */
+            left: 0; /* Posiciona à esquerda do contêiner */
+            width: 100%; /* Mantém a largura total do contêiner */
+            height: 21px; /* Mantém a altura de 21 pixels */
+            background-image: url('img/CortarHorizontal.bmp'); /* Aplica a imagem de fundo */
+            background-position: center; /* Centraliza a imagem de fundo (opcional) */
+            background-size: cover; /* Faz a imagem de fundo cobrir todo o elemento (opcional) */
+            clip-path: none; /* Remove o recorte, se aplicável */
+            transform: scaleY(-1)  translateY(-25px);
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="header-emtu">EMTU</div>
+        <div class="header-title">EMPRESA METROPOLITANA DE TRANSPORTES URBANOS DE SÃO PAULO S.A.</div>
+    </div>
+
+    <div class="container">
+        <table>
+            <tr>
+                <td class="first-column">RG:</td>
+                <td colspan="1">467217543 SSP/SP</td>
+                <td>CTPS:</td>
+                <td colspan="1"></td>
+                <td>COMUNICADO: </td>
+                <td colspan="2"> 17/05/2024</td>
+            </tr>
+            <tr>
+                <td>NOME:</td>
+                <td colspan="4">PAMELLA REGINA GONZAGA CHAVES</td>
+            </tr>
+            <tr>
+                <td>ENDEREÇO:</td>
+                <td colspan="3">RUA JOÃO COELHO DE SOUZA</td>
+                <td class="label-right">NÚMERO:</td>
+                <td>479</td>
+            </tr>
+            <tr>
+                <td>COMPLEMENTO:</td>
+                <td colspan="2">APTO 06</td>
+                <td class="label-right">BAIRRO:</td>
+                <td colspan="3">VILA NOGUEIRA</td>
+            </tr>
+            <tr>
+                <td>CIDADE:</td>
+                <td colspan="1">SÃO PAULO</td>
+                <td class="label-right">ESTADO:</td>
+                <td colspan="1">SP</td>
+                <td class="label-right">CEP:</td>
+                <td colspan="1">09950-020</td>
+            </tr>
+            <tr>
+                <td>EMPRESA:</td>
+                <td colspan="4">CERI CAVALLIERI & CARVALHEIRO LTDA</td>
+            </tr>
+            <tr>
+                <td>ENDEREÇO:</td>
+                <td colspan="3">RUA ALVES GUIMARÃES</td>
+                <td class="label-right">NÚMERO:</td>
+                <td>82</td>
+            </tr>
+            <tr>
+                <td>COMPLEMENTO:</td>
+                <td colspan="2"></td>
+                <td class="label-right">BAIRRO:</td>
+                <td colspan="2">JARDIM PAULISTA</td>
+            </tr>
+            <tr>
+                <td>CIDADE:</td>
+                <td colspan="1">SÃO PAULO</td>
+                <td class="label-right">ESTADO:</td>
+                <td>SP</td>
+                <td class="label-right">CEP:</td>
+                <td>05410-000</td>
+            </tr>
+
+            <!-- Declaração -->
+            <tr>
+                <td colspan="6" class="declaration"><strong>
+                    DECLARO QUE RECEBI GRATUITAMENTE O CARTÃO DE ACESSO PARA O DESEMPREGADO COM O NÚMERO ABAIXO ESPECIFICADO RELATIVO A 28 DIAS DE UTILIZAÇÃO (A CONTAR DA DATA DE ENTREGA), PARA USO EXCLUSIVO NO CORREDOR "SÃO MATEUS/JABAQUARA" E A LINHA "376 - DIADEMA-BROOKLIN", JUNTAMENTE COM O PANFLETO INFORMATIVO SOBRE A SUA UTILIZAÇÃO.</strong>
+                </td>
+            </tr>
+        </table>
+        <table>
+
+            <!-- Linha N°, SELO -->
+            <tr>
+                <td class="first-column-number">N°:</td>
+                <td class="column-number-value">28.481</td>
+                <td class="column-date label-center">10/05/2024</td>
+                <td colspan="3"></td>
+
+            </tr>
+
+            <!-- Linha SELO, DATA -->
+            <tr>
+                <td>SELO:</td>
+                <td>75972</td>
+                <td class="label-center">DATA:</td>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+
+        <!-- Assinaturas -->
+        <div class="signature">
+            <div>
+                <div class="line-guide"></div>
+                ASSINATURA DO BENEFICIÁRIO
+            </div>
+            <div>
+                <div class="line-guide"></div>
+                ASSINATURA DO FUNCIONÁRIO
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <!-- Seção do Cartão -->
+<div class="card-section">
+    <!-- Cortes verticais e horizontais -->
+    <div class="cut-vertical"></div>
+    <div class="cut-horizontal" style="top: -5px;"></div>
+
+    <!-- Cortes duplicados nos lados opostos -->
+    <div class="cut-vertical-opposite"></div>
+    <div class="cut-horizontal-opposite"></div>
+
+    <!-- Lado esquerdo do cartão -->
+    <div class="card-left">
+        <div class="card-left-title"><br>
+            <p><strong>TRABALHADOR DESEMPREGADO</strong><br>
+            Decreto N° 32.144 de 14 de agosto de 1990</p>
+        </div>
+
+        <!-- Conteúdo dividido em duas colunas: texto e foto -->
+        <div class="card-left-content" style="display: flex; align-items: flex-start;">
+            <div class="card-text" style="flex: 1;">
+                <table class="card-info-table">
+                    <tr>
+                        <td><strong>Nome:</strong></td>
+                        <td>PAMELA REGINA GONZAGA CHAVES</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R.G.:</strong></td>
+                        <td>44123123 SSP/SP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>N°:</strong></td>
+                        <td>28.123</td>
+                    </tr>
+                </table>
+
+                <p class="card-details"  style="padding-left: 3px;">
+                    <strong>Retirado em:</strong><br>
+                    <span class="block-text">15/10/2024</span><br>
+                    <strong>Validade até:</strong><br>
+                    <span class="validade-data">12/11/2024</span>
+                </p>
+            </div>
+
+
+            <!-- Foto posicionada à direita -->
+            <div class="card-photo" style="width: 115px; height: 140px; background-color: lightgray; text-align: center; line-height: 90px; font-size: 12px; margin-left: 10px;">
+                FOTO
+            </div>
+        </div>
+    </div>
+
+    <!-- Lado direito do cartão -->
+    <div class="card-right" ><br>
+        <p style="padding-left: 2px;">
+            Este cartão é válido para transporte gratuito exclusivo para o desempregado aqui mencionado no Sistema operado pela Concessionária METRA - Sistema Metropolitano de Transportes Ltda., abrangendo o Corredor São Mateus/Jabaquara e a Linha 376.
+        </p>
+        <p style="padding-left: 2px;">
+            Este cartão é pessoal e intransferível e deverá ser devolvido à EMTU ou a METRA no final do prazo, ficando a sua reprodução e/ou comercialização proibida. A não observância poderá acarretar sanções previstas em Lei.
+        </p>
+        <p style="padding-left: 2px;">
+            EMTU/SP - Rua Joaquim Casemiro, 290 . Bairro Planalto<br>
+            São Bernardo do Campo - SP - CEP 09890-050 <br> Tel: 1234-1234
+            Site: www.emtu.sp.gov.br <br> E.mail: emtu@emtu.sp.gov.br<br>
+        </p>
+    </div>
+</div>
+<br>
+
+
+</body>
+</html>

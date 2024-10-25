@@ -1,0 +1,72 @@
+
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>:: EMTU - Sistema Desempregado ::</title>
+  <!-- Responsividade -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+
+  <!-- AdminLTE Theme -->
+  <link rel="stylesheet" href="./css/adminlte.css">
+  <link rel="stylesheet" href="./css/desempregado.css">
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Date Range Picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<style>
+
+  .main-header{
+    background-color: #343A40;
+  }
+  .hidden-xs{
+    color: #fff;
+  }
+</style>
+<body class="layout-fixed">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav ms-auto">
+          <!-- User Account Menu -->
+          <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <img src="./img/user.png" class="user-image img-circle shadow" alt="User Image">
+              <span class="hidden-xs"><span id="spanNomeUsuarioBarra"></span></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <li class="user-header" style="background-color: #204874; color: #fff;">
+                <img src="./img/user.png" class="img-circle shadow" alt="User Image">
+                <p>
+                  <span id="spanNomeUsuarioCaixa">Usuário</span>
+                  <small>Último Login: <span id="spanUltimoLogin">---</span></small>
+                </p>
+              </li>
+              <li class="user-footer text-center">
+                <a href="login.htm" class="btn btn-outline-secondary btn-flat" style="margin-right: 5px;">Sair do
+                  Sistema</a>
+                <a href="trocarSenha.htm" class="btn btn-outline-secondary btn-flat">Trocar Senha</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>

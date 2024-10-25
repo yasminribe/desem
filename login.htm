@@ -1,0 +1,27 @@
+<%
+  'RESETAR TODAS AS SESSOES DO LOGIN - FUNCIONA COMO LOGOUT'
+   session("desempregadoChUsuario") = ""
+   session("desempregadoLogin") = ""
+   session("desempregadoNome") = ""
+   session("desempregadoUltimoAcesso") = ""
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EMTU - Sistema Desempregado</title>
+  <link rel="stylesheet" type="text/css" href="/autenticacaoGlobal/lib/css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/autenticacaoGlobal/lib/css/noty.css"/>
+
+</head>
+<body>
+
+<!--#include virtual="/home/topo.htm"-->
+
+<!--#include virtual="/formAutenticacao.htm"-->
+
+<!--#include virtual="/home/rodape.htm"-->
+
+
+</body>
+</html>
